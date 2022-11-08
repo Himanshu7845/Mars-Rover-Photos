@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">UnOrgAssingment</string>
+    <string name="curiosity">Curiosity</string>
+    <string name="spirit">SPIRIT</string>
+    <string name="opportunity">OPPORTUNITY</string>
+    <string name="hint">Please Enter SOL value</string>
+    <string name="rover">Rover</string>
+    <string name="data">FetchData</string>
+</resources>

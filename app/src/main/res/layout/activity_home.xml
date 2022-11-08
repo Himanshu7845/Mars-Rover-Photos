@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/check"
+        tools:context=".view.Home">
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/plusjakartatextregular"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="MARS EXPLORATION ROVER"/>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/c1"
+            app:cardCornerRadius="15dp"
+            android:layout_width="match_parent"
+            app:cardElevation="5dp"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:background="@drawable/check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/plusjakartadisplaymedium"
+                        android:layout_gravity="center"
+                        android:text="@string/curiosity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:text="@string/rover"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="end"
+                    android:layout_marginStart="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="100dp"
+                        android:layout_margin="20dp"
+                        app:cardElevation="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/roverone" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/c2"
+            app:cardCornerRadius="15dp"
+            android:layout_width="match_parent"
+            app:cardElevation="5dp"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:background="@drawable/check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/plusjakartadisplaymedium"
+                        android:layout_gravity="center"
+                        android:text="@string/spirit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:text="@string/rover"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="end"
+                    android:layout_marginStart="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="100dp"
+                        android:layout_margin="20dp"
+                        app:cardElevation="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/roverone" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/c3"
+            app:cardCornerRadius="15dp"
+            android:layout_width="match_parent"
+            app:cardElevation="5dp"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:background="@drawable/check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/plusjakartadisplaymedium"
+                        android:layout_gravity="center"
+                        android:text="@string/opportunity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:text="@string/rover"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="end"
+                    android:layout_marginStart="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="100dp"
+                        android:layout_margin="20dp"
+                        app:cardElevation="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/roverone" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
+    </LinearLayout>
+</layout>
