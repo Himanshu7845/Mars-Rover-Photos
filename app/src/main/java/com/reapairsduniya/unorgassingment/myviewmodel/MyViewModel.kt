@@ -10,6 +10,7 @@ import com.example.mymvvm.retrofitApiCall.getRetrofitService
 import com.reapairsduniya.admin.ResultWrapper.ResultWrappers
 import com.reapairsduniya.unorgassingment.model.roverdatamodel.MarsRoverData
 import com.reapairsduniya.unorgassingment.model.roverdatamodel.Rover
+import com.reapairsduniya.unorgassingment.model.roverinfomodel.RoverInfo
 import com.repairsduniya.android.Repository.MyReposiratory
 import kotlinx.coroutines.launch
 
@@ -20,8 +21,8 @@ class MyViewModel:ViewModel()
         get() = mutablePinCodeLiveData
 
 
-    val mutableGetRoverInfoLiveData = MutableLiveData<ResultWrappers<com.reapairsduniya.unorgassingment.model.roverinfomodel.Rover>>()
-    val getRoverInfoLiveData: LiveData<ResultWrappers<com.reapairsduniya.unorgassingment.model.roverinfomodel.Rover>>
+    val mutableGetRoverInfoLiveData = MutableLiveData<ResultWrappers<RoverInfo>>()
+    val getRoverInfoLiveData: LiveData<ResultWrappers<RoverInfo>>
         get() = mutableGetRoverInfoLiveData
 
 
@@ -50,14 +51,14 @@ class MyViewModel:ViewModel()
 
     suspend fun getRoverInfo(body:String,api_key:String){
         viewModelScope.launch {
-            mutablePinCodeLiveData.value=ResultWrappers.Loading()
+            mutableGetRoverInfoLiveData.value=ResultWrappers.Loading()
             val service = getRetrofitService(APIInterface::class.java)
             val repo=MyReposiratory(service)
             val result= repo.getRoverInfo(body,api_key)
             if(result.isSuccessful && result.body()!=null)
             {
                 mutableGetRoverInfoLiveData.value=ResultWrappers.Success(result.body()!!)
-                Log.d("pinCodeResponse", "getPinCode: ${result.body()}")
+                Log.d("getDataRover", "${result.body()}")
             }
             else if(result.errorBody()!=null)
             {

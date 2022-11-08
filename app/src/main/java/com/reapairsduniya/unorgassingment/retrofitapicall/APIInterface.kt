@@ -6,6 +6,7 @@ import com.reapairsduniya.unorgassingment.model.roverinfomodel.RoverInfo
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface APIInterface
@@ -22,8 +23,8 @@ interface APIInterface
 
 
     //curiosity?api_key=2HsXU3YMMSDyoGvrDv45noms7E8okXxZcw0rDPxq
-    @GET("rovers/")
-    suspend fun getRoverInfo(body:String, @Query ("api_key") api_key:String):Response<Rover>
+    @GET("rovers/{roverName}")
+    suspend fun getRoverInfo(@Path("roverName") body:String, @Query ("api_key") api_key:String):Response<RoverInfo>
 
 
 }

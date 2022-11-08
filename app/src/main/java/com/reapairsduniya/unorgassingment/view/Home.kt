@@ -46,19 +46,7 @@ class Home : AppCompatActivity() {
                  }
              })
          }*/
-        lifecycleScope.launch {
-            val myViewModel = MyViewModel()
-            myViewModel.getRoverInfo("curiosity", API_KEY)
-            myViewModel.getRoverInfoLiveData.observe(this@Home, Observer {
-                when (it) {
-                    is ResultWrappers.Error -> showToast("Error")
-                    is ResultWrappers.Loading -> showToast("Loading")
-                    is ResultWrappers.Success -> {
-                        Log.d("AllData", "onCreate: ${it.toString()}")
-                    }
-                }
-            })
-        }
+
 
     }
 }

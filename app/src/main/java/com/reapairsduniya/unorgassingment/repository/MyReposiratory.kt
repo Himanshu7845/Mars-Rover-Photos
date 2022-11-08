@@ -12,7 +12,7 @@ class MyReposiratory(val apiInterface: APIInterface)
        return apiInterface.getRoverBySol(sol,api_key)
     }
 
-    suspend fun getRoverInfo(body:String,api_key:String):Response<Rover> {
+    suspend fun getRoverInfo(body:String,api_key:String):Response<RoverInfo> {
        return apiInterface.getRoverInfo(body,api_key)
     }
 }
