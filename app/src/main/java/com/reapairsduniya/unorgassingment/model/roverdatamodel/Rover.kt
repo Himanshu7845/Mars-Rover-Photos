@@ -1,4 +1,4 @@
-package com.reapairsduniya.unorgassingment.model
+package com.reapairsduniya.unorgassingment.model.roverdatamodel
 
 data class Rover(
     val id: Int,

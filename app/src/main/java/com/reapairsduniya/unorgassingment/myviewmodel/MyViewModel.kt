@@ -8,7 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.mymvvm.retrofitApiCall.APIInterface
 import com.example.mymvvm.retrofitApiCall.getRetrofitService
 import com.reapairsduniya.admin.ResultWrapper.ResultWrappers
-import com.reapairsduniya.unorgassingment.model.MarsRoverData
+import com.reapairsduniya.unorgassingment.model.roverdatamodel.MarsRoverData
+import com.reapairsduniya.unorgassingment.model.roverdatamodel.Rover
 import com.repairsduniya.android.Repository.MyReposiratory
 import kotlinx.coroutines.launch
 
@@ -17,6 +18,13 @@ class MyViewModel:ViewModel()
     val mutablePinCodeLiveData = MutableLiveData<ResultWrappers<MarsRoverData>>()
     val livePinCodeData: LiveData<ResultWrappers<MarsRoverData>>
         get() = mutablePinCodeLiveData
+
+
+    val mutableGetRoverInfoLiveData = MutableLiveData<ResultWrappers<com.reapairsduniya.unorgassingment.model.roverinfomodel.Rover>>()
+    val getRoverInfoLiveData: LiveData<ResultWrappers<com.reapairsduniya.unorgassingment.model.roverinfomodel.Rover>>
+        get() = mutableGetRoverInfoLiveData
+
+
     suspend fun getRoverData(sol:String,api_key:String){
         viewModelScope.launch {
             mutablePinCodeLiveData.value=ResultWrappers.Loading()
@@ -34,6 +42,29 @@ class MyViewModel:ViewModel()
             }
             else{
                 mutablePinCodeLiveData.value=ResultWrappers.Error("Something Went Wrong")
+            }
+
+        }
+    }
+
+
+    suspend fun getRoverInfo(body:String,api_key:String){
+        viewModelScope.launch {
+            mutablePinCodeLiveData.value=ResultWrappers.Loading()
+            val service = getRetrofitService(APIInterface::class.java)
+            val repo=MyReposiratory(service)
+            val result= repo.getRoverInfo(body,api_key)
+            if(result.isSuccessful && result.body()!=null)
+            {
+                mutableGetRoverInfoLiveData.value=ResultWrappers.Success(result.body()!!)
+                Log.d("pinCodeResponse", "getPinCode: ${result.body()}")
+            }
+            else if(result.errorBody()!=null)
+            {
+                mutableGetRoverInfoLiveData.value=ResultWrappers.Error("Something Went Wrong")
+            }
+            else{
+                mutableGetRoverInfoLiveData.value=ResultWrappers.Error("Something Went Wrong")
             }
 
         }

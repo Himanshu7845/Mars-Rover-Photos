@@ -13,7 +13,7 @@ class CommonView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=DataBindingUtil.setContentView(this,R.layout.activity_common_view)
         binding.apply {
-            edt1.setOnClickListener {
+            fetch.setOnClickListener {
                 validation(binding)
             }
         }
@@ -25,7 +25,7 @@ class CommonView : AppCompatActivity() {
               showToast("Please Provide SOL")
           }
           else{
-             fetch.isEnabled=false
+           //  fetch.isEnabled=false
           }
       }
     }
