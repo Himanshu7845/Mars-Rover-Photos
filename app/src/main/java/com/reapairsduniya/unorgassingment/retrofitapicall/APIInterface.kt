@@ -18,8 +18,8 @@ interface APIInterface
      ka particular sol me click kiya wala data dekhega
 
      */
-    @GET("rovers/curiosity/photos")
-    suspend fun getRoverBySol(@Query("sol") sol: String,@Query ("api_key") api_key:String):Response<MarsRoverData>
+    @GET("rovers/{roverName}/photos")
+    suspend fun getRoverBySol(@Path("roverName") body:String,@Query("sol") sol: String,@Query ("api_key") api_key:String):Response<MarsRoverData>
 
 
     //curiosity?api_key=2HsXU3YMMSDyoGvrDv45noms7E8okXxZcw0rDPxq

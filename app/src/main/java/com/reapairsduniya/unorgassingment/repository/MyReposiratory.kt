@@ -8,8 +8,8 @@ import retrofit2.Response
 
 class MyReposiratory(val apiInterface: APIInterface)
 {
-    suspend fun getRoverBySol(sol:String,api_key:String):Response<MarsRoverData>{
-       return apiInterface.getRoverBySol(sol,api_key)
+    suspend fun getRoverBySol(sol:String,api_key:String,roverName:String):Response<MarsRoverData>{
+       return apiInterface.getRoverBySol(sol = sol, api_key = api_key, body = roverName)
     }
 
     suspend fun getRoverInfo(body:String,api_key:String):Response<RoverInfo> {

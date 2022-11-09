@@ -23,13 +23,16 @@ class Home : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         binding.apply {
             c1.setOnClickListener {
+                roverName="curiosity"
                 startActivity(Intent(this@Home, CommonView::class.java))
             }
             c2.setOnClickListener {
-
+                roverName="spirit"
+                startActivity(Intent(this@Home, CommonView::class.java))
             }
             c3.setOnClickListener {
-
+                roverName="opportunity"
+                startActivity(Intent(this@Home, CommonView::class.java))
             }
         }
 
@@ -48,5 +51,8 @@ class Home : AppCompatActivity() {
          }*/
 
 
+    }
+    companion object{
+        lateinit var roverName:String
     }
 }

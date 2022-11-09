@@ -16,9 +16,9 @@ import kotlinx.coroutines.launch
 
 class MyViewModel:ViewModel()
 {
-    val mutablePinCodeLiveData = MutableLiveData<ResultWrappers<MarsRoverData>>()
-    val livePinCodeData: LiveData<ResultWrappers<MarsRoverData>>
-        get() = mutablePinCodeLiveData
+    val mutableRoverLiveData = MutableLiveData<ResultWrappers<MarsRoverData>>()
+    val liveRoverData: LiveData<ResultWrappers<MarsRoverData>>
+        get() = mutableRoverLiveData
 
 
     val mutableGetRoverInfoLiveData = MutableLiveData<ResultWrappers<RoverInfo>>()
@@ -26,23 +26,23 @@ class MyViewModel:ViewModel()
         get() = mutableGetRoverInfoLiveData
 
 
-    suspend fun getRoverData(sol:String,api_key:String){
+    suspend fun getRoverData(sol:String,api_key:String,roverName: String){
         viewModelScope.launch {
-            mutablePinCodeLiveData.value=ResultWrappers.Loading()
+            mutableRoverLiveData.value=ResultWrappers.Loading()
             val service = getRetrofitService(APIInterface::class.java)
             val repo=MyReposiratory(service)
-            val result= repo.getRoverBySol(sol, api_key = api_key)
+            val result= repo.getRoverBySol(sol,api_key,roverName)
             if(result.isSuccessful && result.body()!=null)
             {
-                mutablePinCodeLiveData.value=ResultWrappers.Success(result.body()!!)
+                mutableRoverLiveData.value=ResultWrappers.Success(result.body()!!)
                 Log.d("pinCodeResponse", "getPinCode: ${result.body()}")
             }
             else if(result.errorBody()!=null)
             {
-                mutablePinCodeLiveData.value=ResultWrappers.Error("Something Went Wrong")
+                mutableRoverLiveData.value=ResultWrappers.Error("Something Went Wrong")
             }
             else{
-                mutablePinCodeLiveData.value=ResultWrappers.Error("Something Went Wrong")
+                mutableRoverLiveData.value=ResultWrappers.Error("Something Went Wrong")
             }
 
         }
