@@ -9,8 +9,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface APIInterface
-{
+interface APIInterface {
 
 
     /*
@@ -19,12 +18,19 @@ interface APIInterface
 
      */
     @GET("rovers/{roverName}/photos")
-    suspend fun getRoverBySol(@Path("roverName") body:String,@Query("sol") sol: String,@Query ("api_key") api_key:String):Response<MarsRoverData>
+    suspend fun getRoverBySol(
+        @Path("roverName") body: String,
+        @Query("sol") sol: String,
+        @Query("api_key") api_key: String
+    ): Response<MarsRoverData>
 
 
     //curiosity?api_key=2HsXU3YMMSDyoGvrDv45noms7E8okXxZcw0rDPxq
     @GET("rovers/{roverName}")
-    suspend fun getRoverInfo(@Path("roverName") body:String, @Query ("api_key") api_key:String):Response<RoverInfo>
+    suspend fun getRoverInfo(
+        @Path("roverName") body: String,
+        @Query("api_key") api_key: String
+    ): Response<RoverInfo>
 
 
 }

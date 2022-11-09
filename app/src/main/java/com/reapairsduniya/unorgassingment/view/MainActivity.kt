@@ -15,6 +15,7 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
             delay(3000)
             binding.pBar.visibility = View.GONE
             startActivity(Intent(this@MainActivity, Home::class.java))
+            finish()
         }
         binding.pBar.visibility = View.VISIBLE
     }

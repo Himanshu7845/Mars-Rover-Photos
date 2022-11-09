@@ -1,56 +1,47 @@
 package com.reapairsduniya.unorgassingment.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
-import com.example.mymvvm.constants.API_KEY
-import com.reapairsduniya.admin.MyViewModel.MyViewModel
-import com.reapairsduniya.admin.ResultWrapper.ResultWrappers
 import com.reapairsduniya.unorgassingment.R
 import com.reapairsduniya.unorgassingment.databinding.ActivityHomeBinding
-import com.reapairsduniya.unorgassingment.util.showToast
-import kotlinx.coroutines.launch
+
 
 class Home : AppCompatActivity() {
-
+    var doubleBackToExitPressedOnce = false
     lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         binding.apply {
             c1.setOnClickListener {
-                roverName="curiosity"
+                roverName = "curiosity"
                 startActivity(Intent(this@Home, CommonView::class.java))
             }
             c2.setOnClickListener {
-                roverName="spirit"
+                roverName = "spirit"
                 startActivity(Intent(this@Home, CommonView::class.java))
             }
             c3.setOnClickListener {
-                roverName="opportunity"
+                roverName = "opportunity"
                 startActivity(Intent(this@Home, CommonView::class.java))
             }
         }
+    }
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
 
-        /* lifecycleScope.launch {
-             val myViewModel=MyViewModel()
-             myViewModel.getRoverData("100", API_KEY)
-             myViewModel.livePinCodeData.observe(this@Home, Observer {
-                 when(it){
-                     is ResultWrappers.Error -> showToast("Error")
-                     is ResultWrappers.Loading -> showToast("Loading")
-                     is ResultWrappers.Success ->{
-                         Log.d("AllData", "onCreate: ${it.data}")
-                     }
-                 }
-             })
-         }*/
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
 
-
+        Handler(Looper.getMainLooper()).postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 1000)
     }
     companion object{
         lateinit var roverName:String

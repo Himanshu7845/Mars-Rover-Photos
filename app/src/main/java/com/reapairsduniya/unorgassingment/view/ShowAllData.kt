@@ -29,11 +29,6 @@ import kotlinx.coroutines.launch
 class ShowAllData : AppCompatActivity(),MyAdapter.I1 {
     lateinit var binding: ActivityShowAllDataBinding
     lateinit var  myAdapter: MyAdapter
-    lateinit var  MyAd: MyAdapter
-    var isScrolling:Boolean=false
-    var currentItem=0
-    var scrollOutItem=0
-    var totalItem=0
     val list=ArrayList<AllDataModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,7 +86,7 @@ class ShowAllData : AppCompatActivity(),MyAdapter.I1 {
                             binding.recyclerView.adapter=myAdapter
 
 
-                            binding.apply {
+                            /*binding.apply {
                                 recyclerView.addOnScrollListener(object: RecyclerView.OnScrollListener() {
                                     override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                                         if(newState==OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
@@ -113,7 +108,7 @@ class ShowAllData : AppCompatActivity(),MyAdapter.I1 {
 
                                     }
                                 })
-                            }
+                            }*/
 
 
                             Log.d("checkList", "hitRoverDataApi:  ${list.size} $list")

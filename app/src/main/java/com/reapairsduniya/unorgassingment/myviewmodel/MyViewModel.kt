@@ -49,7 +49,8 @@ class MyViewModel:ViewModel()
     }
 
 
-    suspend fun getRoverInfo(body:String,api_key:String){
+    suspend fun getRoverInfo(body:String,api_key:String)
+    {
         viewModelScope.launch {
             mutableGetRoverInfoLiveData.value=ResultWrappers.Loading()
             val service = getRetrofitService(APIInterface::class.java)

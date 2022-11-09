@@ -6,4 +6,9 @@
     <string name="hint">Please Enter SOL value</string>
     <string name="rover">Rover</string>
     <string name="data">FetchData</string>
+
+
+    <string name="c">curiosity</string>
+    <string name="sp">spirit</string>
+    <string name="opp">opportunity</string>
 </resources>

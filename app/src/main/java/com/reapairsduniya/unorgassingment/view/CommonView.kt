@@ -19,7 +19,6 @@ import kotlinx.coroutines.launch
 
 class CommonView : AppCompatActivity() {
     lateinit var binding: ActivityCommonViewBinding
-
     var totalSol: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +57,6 @@ class CommonView : AppCompatActivity() {
                     .toInt() > 0
             ) {
                 showToast("please enter sol value smaller than $totalSol")
-                //  fetch.isEnabled=false
             } else {
                 solValue=edt1.text.toString()
                 startActivity(Intent(this@CommonView,ShowAllData::class.java))
