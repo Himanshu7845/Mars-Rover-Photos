@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.reapairsduniya.unorgassingment.R
 import com.reapairsduniya.unorgassingment.databinding.ActivityHomeBinding
+import com.reapairsduniya.unorgassingment.util.checkForInternet
+import com.reapairsduniya.unorgassingment.util.showToast
 
 
 class Home : AppCompatActivity() {
@@ -18,20 +20,49 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         binding.apply {
+
+
             c1.setOnClickListener {
-                roverName = "curiosity"
-                startActivity(Intent(this@Home, CommonView::class.java))
+                curiosity()
             }
             c2.setOnClickListener {
-                roverName = "spirit"
-                startActivity(Intent(this@Home, CommonView::class.java))
+                spirit()
             }
             c3.setOnClickListener {
-                roverName = "opportunity"
-                startActivity(Intent(this@Home, CommonView::class.java))
+                opportunity()
             }
         }
     }
+    fun opportunity() {
+        val b = checkForInternet(this@Home)
+        if (b) {
+            roverName = "opportunity"
+            startActivity(Intent(this@Home, CommonView::class.java))
+        } else {
+            showToast("Please Check Your InterNet Connection")
+        }
+    }
+
+    fun curiosity() {
+        val b = checkForInternet(this@Home)
+        if (b) {
+            roverName = "curiosity"
+            startActivity(Intent(this@Home, CommonView::class.java))
+        } else {
+            showToast("Please Check Your InterNet Connection")
+        }
+    }
+
+    fun spirit() {
+        val b = checkForInternet(this@Home)
+        if (b) {
+            roverName = "spirit"
+            startActivity(Intent(this@Home, CommonView::class.java))
+        } else {
+            showToast("Please Check Your InterNet Connection")
+        }
+    }
+
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
@@ -40,10 +71,12 @@ class Home : AppCompatActivity() {
 
         this.doubleBackToExitPressedOnce = true
         Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
-
-        Handler(Looper.getMainLooper()).postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 1000)
+        Handler(Looper.getMainLooper()).postDelayed(Runnable {
+            doubleBackToExitPressedOnce = false
+        }, 1000)
     }
-    companion object{
-        lateinit var roverName:String
+
+    companion object {
+        lateinit var roverName: String
     }
 }

@@ -14,6 +14,7 @@ import com.reapairsduniya.admin.ResultWrapper.ResultWrappers
 import com.reapairsduniya.unorgassingment.R
 import com.reapairsduniya.unorgassingment.databinding.ActivityCommonViewBinding
 import com.reapairsduniya.unorgassingment.loader.Loader
+import com.reapairsduniya.unorgassingment.util.checkForInternet
 import com.reapairsduniya.unorgassingment.util.showToast
 import kotlinx.coroutines.launch
 
@@ -25,7 +26,15 @@ class CommonView : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_common_view)
         binding.apply {
             fetch.setOnClickListener {
-                validation(binding)
+
+                val b=checkForInternet(this@CommonView)
+                if(b){
+                    validation(binding)
+                }
+                else{
+                  showToast("Please Check Your InterNet Connection")
+                }
+
             }
         }
         lifecycleScope.launch {
