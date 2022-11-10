@@ -20,8 +20,6 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         binding.apply {
-
-
             c1.setOnClickListener {
                 curiosity()
             }
