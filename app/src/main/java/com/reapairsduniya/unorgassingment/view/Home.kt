@@ -33,7 +33,7 @@ class Home : AppCompatActivity() {
             }
         }
     }
-    fun opportunity() {
+    private fun opportunity() {
         val b = checkForInternet(this@Home)
         if (b) {
             roverName = "opportunity"
@@ -43,7 +43,7 @@ class Home : AppCompatActivity() {
         }
     }
 
-    fun curiosity() {
+    private fun curiosity() {
         val b = checkForInternet(this@Home)
         if (b) {
             roverName = "curiosity"
@@ -53,7 +53,7 @@ class Home : AppCompatActivity() {
         }
     }
 
-    fun spirit() {
+    private fun spirit() {
         val b = checkForInternet(this@Home)
         if (b) {
             roverName = "spirit"
